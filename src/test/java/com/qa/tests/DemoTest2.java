@@ -6,18 +6,6 @@ import org.testng.annotations.Test;
 public class DemoTest2 {
 
 	@Test
-	public void add() {
-		System.out.println("ADD");
-		int a = 10, b = 20;
-		Assert.assertEquals(30, a+b);
-	}
-	@Test
-	public void sub() {
-		System.out.println("SUB");
-		int a = 10, b = 20;
-		Assert.assertEquals(10, b-a);
-	}
-	@Test
 	public void div() {
 		System.out.println("DIV");
 		int a = 10, b = 20;

@@ -11,7 +11,7 @@ public class DemoTest {
 		int a = 10, b = 20;
 		Assert.assertEquals(30, a+b);
 	}
-	@Test(groups ="smoke")
+	@Test
 	public void sub() {
 		System.out.println("SUB");
 		int a = 10, b = 20;

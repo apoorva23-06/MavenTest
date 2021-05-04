@@ -9,13 +9,9 @@
 
   <name>MavenDemoTest</name>
   <url>http://maven.apache.org</url>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.test.skip>false</maven.test.skip>
-  </properties>
   
- <profiles>
+ <!-- Profiling done to run  two different testng files. One including Regression TC and other including all testcase -->
+  <profiles>
  <profile>
  <id>smoke</id>
   <build>
@@ -44,7 +40,68 @@
     </pluginManagement>
   </build>
   </profile>
-  </profiles>
+   
+   <profile>
+ <id>regression</id>
+  <build>
+    <pluginManagement>
+      <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+          <sources>1.6</sources>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+          <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>src/main/resources/testng2.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  </profile>
+   </profiles>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.test.skip>false</maven.test.skip>
+  </properties>
+  
+  
+  <build>
+    <pluginManagement>
+      <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+          <sources>1.6</sources>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+          <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 
   <dependencies>
     <dependency>
